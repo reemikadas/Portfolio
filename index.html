@@ -295,10 +295,11 @@ img{max-width:100%;display:block;}
   border:1px solid var(--mustard-dark);border-radius:3px;pointer-events:none;
 }
 .diploma-icon{
-  width:48px;height:48px;border-radius:50%;
-  background:var(--sage);border:2px solid var(--espresso);
+  width:56px;height:56px;border-radius:50%;
+  border:2px solid var(--espresso);
   display:flex;align-items:center;justify-content:center;
-  margin:0 auto 16px;font-family:'Fraunces',serif;font-weight:700;color:var(--parchment-light);font-size:18px;
+  margin:0 auto 16px;font-size:42px;line-height:1;
+  overflow:hidden;
 }
 .diploma-school{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--espresso);margin-bottom:6px;letter-spacing:0.01em;font-style:italic;}
 .diploma-degree{font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:var(--terracotta-dark);margin-bottom:10px;letter-spacing:0.04em;text-transform:uppercase;font-style:normal;}
@@ -407,12 +408,14 @@ img{max-width:100%;display:block;}
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 18px;
 }
-.proj-banner-1{background:var(--terracotta);}
-.proj-banner-2{background:var(--plum);}
-.proj-banner-3{background:var(--sage-dark);}
-.proj-banner-4{background:var(--terracotta-dark);}
-.proj-banner-5{background:#3D2B6B;}
-.proj-banner-6{background:#4A6741;}
+.proj-banner-genai{background:#7C5CBF;}       /* GenAI & RAG */
+.proj-banner-dl{background:#3D2B6B;}           /* Deep Learning */
+.proj-banner-ml{background:#5E3F9E;}           /* Machine Learning */
+.proj-banner-nlp{background:#4A3A6B;}          /* NLP */
+.proj-banner-data{background:#4A6741;}         /* Data & SQL */
+.proj-banner-viz{background:#6E5A99;}          /* Data Visualization */
+
+
 .proj-ep{font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:0.05em;}
 .proj-banner h3{color:var(--parchment-light);font-size:18px;font-weight:600;}
 .proj-body{padding:22px;flex:1;display:flex;flex-direction:column;}
@@ -783,7 +786,7 @@ img{max-width:100%;display:block;}
 
     <div class="diploma-grid reveal">
       <div class="diploma">
-        <div class="diploma-icon">MS</div>
+        <div class="diploma-icon">🇺🇸</div>
         <div class="diploma-school">Santa Clara University</div>
         <div class="diploma-degree">M.S. in Business Analytics</div>
         <div class="diploma-meta">Sept 2024 – Dec 2025</div>
@@ -791,7 +794,7 @@ img{max-width:100%;display:block;}
         <div class="diploma-courses">Data Analytics with Python &middot; SQL Fundamentals &middot; Tableau &middot; Machine Learning &middot; Deep Learning &middot; Marketing Analytics</div>
       </div>
       <div class="diploma">
-        <div class="diploma-icon">PG</div>
+        <div class="diploma-icon">🇮🇳</div>
         <div class="diploma-school">ITM Business School</div>
         <div class="diploma-degree">PG Diploma in Management</div>
         <div class="diploma-meta">Jun 2019 – May 2021</div>
@@ -799,7 +802,7 @@ img{max-width:100%;display:block;}
         <div class="diploma-courses">Decision Sciences &middot; Advanced Excel &middot; Marketing Management &middot; Corporate Finance &middot; Financial Modelling &amp; Simulations</div>
       </div>
       <div class="diploma">
-        <div class="diploma-icon" style="font-size:14px;">BBA</div>
+        <div class="diploma-icon">🇮🇳</div>
         <div class="diploma-school">University of Mumbai</div>
         <div class="diploma-degree">Bachelor's in Management Studies</div>
         <div class="diploma-meta">Jun 2015 – May 2018</div>
@@ -886,7 +889,7 @@ img{max-width:100%;display:block;}
         <span class="frame-title-text">Featured episodes</span>
       </div>
       <h2 class="section-title"><span class="ep-num">S. 05</span> — GitHub Projects</h2>
-      <p class="section-desc">16 episodes, one recurring theme: turning data into decisions. Filter by technology to find what you're looking for.</p>
+      <p class="section-desc">16 episodes, one recurring theme: turning data into decisions. Filter by domain to find what you're looking for.</p>
     </div>
 
     <!-- Filter bar -->
@@ -894,29 +897,20 @@ img{max-width:100%;display:block;}
       <button class="proj-filter-btn active" data-filter="all" onclick="filterProjects('all', this)">
         All <span class="proj-filter-count" id="cnt-all">16</span>
       </button>
-      <button class="proj-filter-btn" data-filter="Python" onclick="filterProjects('Python', this)">
-        Python <span class="proj-filter-count" id="cnt-Python"></span>
+      <button class="proj-filter-btn" data-filter="GenAI & RAG" onclick="filterProjects('GenAI & RAG', this)">
+        GenAI &amp; RAG <span class="proj-filter-count" id="cnt-genai"></span>
       </button>
-      <button class="proj-filter-btn" data-filter="LangChain" onclick="filterProjects('LangChain', this)">
-        LangChain <span class="proj-filter-count" id="cnt-LangChain"></span>
+      <button class="proj-filter-btn" data-filter="Machine Learning" onclick="filterProjects('Machine Learning', this)">
+        Machine Learning <span class="proj-filter-count" id="cnt-ml"></span>
       </button>
-      <button class="proj-filter-btn" data-filter="MySQL" onclick="filterProjects('MySQL', this)">
-        MySQL <span class="proj-filter-count" id="cnt-MySQL"></span>
+      <button class="proj-filter-btn" data-filter="Deep Learning" onclick="filterProjects('Deep Learning', this)">
+        Deep Learning <span class="proj-filter-count" id="cnt-dl"></span>
       </button>
-      <button class="proj-filter-btn" data-filter="Tableau" onclick="filterProjects('Tableau', this)">
-        Tableau <span class="proj-filter-count" id="cnt-Tableau"></span>
+      <button class="proj-filter-btn" data-filter="NLP" onclick="filterProjects('NLP', this)">
+        NLP <span class="proj-filter-count" id="cnt-nlp"></span>
       </button>
-      <button class="proj-filter-btn" data-filter="TensorFlow" onclick="filterProjects('TensorFlow', this)">
-        TensorFlow <span class="proj-filter-count" id="cnt-TensorFlow"></span>
-      </button>
-      <button class="proj-filter-btn" data-filter="Streamlit" onclick="filterProjects('Streamlit', this)">
-        Streamlit <span class="proj-filter-count" id="cnt-Streamlit"></span>
-      </button>
-      <button class="proj-filter-btn" data-filter="XGBoost" onclick="filterProjects('XGBoost', this)">
-        XGBoost <span class="proj-filter-count" id="cnt-XGBoost"></span>
-      </button>
-      <button class="proj-filter-btn" data-filter="Scikit-learn" onclick="filterProjects('Scikit-learn', this)">
-        Scikit-learn <span class="proj-filter-count" id="cnt-Scikit-learn"></span>
+      <button class="proj-filter-btn" data-filter="Data & BI" onclick="filterProjects('Data & BI', this)">
+        Data &amp; BI <span class="proj-filter-count" id="cnt-bi"></span>
       </button>
     </div>
 
@@ -924,8 +918,8 @@ img{max-width:100%;display:block;}
     <div class="proj-grid reveal" id="projGrid">
 
       <!-- Card 1: HealthMate -->
-      <div class="proj-card" data-tags="Python,LangChain,FAISS,Hugging Face,Groq API,Streamlit,LangSmith">
-        <div class="proj-banner proj-banner-1">
+      <div class="proj-card" data-tags="GenAI & RAG">
+        <div class="proj-banner proj-banner-genai">
           <span class="proj-ep">Episode 1</span>
           <h3>HealthMate</h3>
         </div>
@@ -946,12 +940,12 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
-            <span class="proj-tag" onclick="filterProjects('LangChain',null)">LangChain</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">LangChain</span>
             <span class="proj-tag">FAISS</span>
             <span class="proj-tag">Hugging Face</span>
             <span class="proj-tag">Groq API</span>
-            <span class="proj-tag" onclick="filterProjects('Streamlit',null)">Streamlit</span>
+            <span class="proj-tag">Streamlit</span>
             <span class="proj-tag">LangSmith</span>
           </div>
           <a class="proj-link" href="https://github.com/reemikadas/HealthMate_AI_Fitness_Nutrition_Guide" target="_blank" rel="noopener">View on GitHub &#8594;</a>
@@ -959,8 +953,8 @@ img{max-width:100%;display:block;}
       </div>
 
       <!-- Card 2: Blindness Detection -->
-      <div class="proj-card" data-tags="Python,TensorFlow,Keras,ResNet50,Scikit-learn,OpenCV,Pandas,NumPy">
-        <div class="proj-banner proj-banner-2">
+      <div class="proj-card" data-tags="Deep Learning">
+        <div class="proj-banner proj-banner-dl">
           <span class="proj-ep">Episode 2</span>
           <h3>Blindness Detection</h3>
         </div>
@@ -981,8 +975,8 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
-            <span class="proj-tag" onclick="filterProjects('TensorFlow',null)">TensorFlow</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">TensorFlow</span>
             <span class="proj-tag">Keras</span>
             <span class="proj-tag">ResNet50</span>
             <span class="proj-tag">Scikit-learn</span>
@@ -995,8 +989,8 @@ img{max-width:100%;display:block;}
       </div>
 
       <!-- Card 3: Coffee Shop Sales -->
-      <div class="proj-card" data-tags="MySQL,Tableau">
-        <div class="proj-banner proj-banner-3">
+      <div class="proj-card" data-tags="Data & BI">
+        <div class="proj-banner proj-banner-data">
           <span class="proj-ep">Episode 3</span>
           <h3>Coffee Shop Sales</h3>
         </div>
@@ -1017,16 +1011,16 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('MySQL',null)">MySQL</span>
-            <span class="proj-tag" onclick="filterProjects('Tableau',null)">Tableau</span>
+            <span class="proj-tag">MySQL</span>
+            <span class="proj-tag">Tableau</span>
           </div>
           <a class="proj-link" href="https://github.com/reemikadas/Coffee_Shop_Sales_Analysis" target="_blank" rel="noopener">View on GitHub &#8594;</a>
         </div>
       </div>
 
       <!-- Cards 4–9: Placeholders (visible in default load) -->
-      <div class="proj-card" data-tags="Python,TensorFlow,XGBoost,Scikit-learn,Pandas,NumPy,Matplotlib">
-        <div class="proj-banner proj-banner-4">
+      <div class="proj-card" data-tags="Machine Learning">
+        <div class="proj-banner proj-banner-ml">
           <span class="proj-ep">Episode 4</span>
           <h3>MSFT Stock Forecast</h3>
         </div>
@@ -1047,8 +1041,8 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
-            <span class="proj-tag" onclick="filterProjects('TensorFlow',null)">TensorFlow</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">TensorFlow</span>
             <span class="proj-tag">XGBoost</span>
             <span class="proj-tag">statsmodels</span>
             <span class="proj-tag">Scikit-learn</span>
@@ -1059,8 +1053,8 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="proj-card" data-tags="Python,Pandas,NumPy,Matplotlib,Seaborn">
-        <div class="proj-banner proj-banner-5">
+      <div class="proj-card" data-tags="Data & BI">
+        <div class="proj-banner proj-banner-data">
           <span class="proj-ep">Episode 5</span>
           <h3>Test-Optional Policy</h3>
         </div>
@@ -1081,7 +1075,7 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
+            <span class="proj-tag">Python</span>
             <span class="proj-tag">Pandas</span>
             <span class="proj-tag">NumPy</span>
             <span class="proj-tag">Matplotlib</span>
@@ -1091,8 +1085,8 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="proj-card" data-tags="Python,Pandas,NumPy,Matplotlib,Seaborn">
-        <div class="proj-banner proj-banner-6">
+      <div class="proj-card" data-tags="Data & BI">
+        <div class="proj-banner proj-banner-viz">
           <span class="proj-ep">Episode 6</span>
           <h3>Pixar Films Analysis</h3>
         </div>
@@ -1113,7 +1107,7 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
+            <span class="proj-tag">Python</span>
             <span class="proj-tag">Pandas</span>
             <span class="proj-tag">NumPy</span>
             <span class="proj-tag">Matplotlib</span>
@@ -1123,8 +1117,8 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="proj-card" data-tags="Python,Scikit-learn,Pandas,NumPy,Matplotlib,Seaborn">
-        <div class="proj-banner proj-banner-1">
+      <div class="proj-card" data-tags="Machine Learning">
+        <div class="proj-banner proj-banner-ml">
           <span class="proj-ep">Episode 7</span>
           <h3>Churn Prediction</h3>
         </div>
@@ -1145,8 +1139,8 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
-            <span class="proj-tag" onclick="filterProjects('Scikit-learn',null)">Scikit-learn</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">Scikit-learn</span>
             <span class="proj-tag">imbalanced-learn</span>
             <span class="proj-tag">Pandas</span>
             <span class="proj-tag">NumPy</span>
@@ -1157,8 +1151,8 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="proj-card" data-tags="Python,Scikit-learn,XGBoost,Pandas,NumPy,Matplotlib,Seaborn">
-        <div class="proj-banner proj-banner-2">
+      <div class="proj-card" data-tags="Machine Learning">
+        <div class="proj-banner proj-banner-ml">
           <span class="proj-ep">Episode 8</span>
           <h3>Uber vs Lyft Fares</h3>
         </div>
@@ -1179,9 +1173,9 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
-            <span class="proj-tag" onclick="filterProjects('Scikit-learn',null)">Scikit-learn</span>
-            <span class="proj-tag" onclick="filterProjects('XGBoost',null)">XGBoost</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">Scikit-learn</span>
+            <span class="proj-tag">XGBoost</span>
             <span class="proj-tag">Pandas</span>
             <span class="proj-tag">NumPy</span>
             <span class="proj-tag">Matplotlib</span>
@@ -1191,8 +1185,8 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="proj-card" data-tags="Python,Scikit-learn,XGBoost,LightGBM,Pandas,NumPy,Matplotlib,Seaborn">
-        <div class="proj-banner proj-banner-3">
+      <div class="proj-card" data-tags="Machine Learning">
+        <div class="proj-banner proj-banner-ml">
           <span class="proj-ep">Episode 9</span>
           <h3>Loan Default Prediction</h3>
         </div>
@@ -1213,9 +1207,9 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
-            <span class="proj-tag" onclick="filterProjects('Scikit-learn',null)">Scikit-learn</span>
-            <span class="proj-tag" onclick="filterProjects('XGBoost',null)">XGBoost</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">Scikit-learn</span>
+            <span class="proj-tag">XGBoost</span>
             <span class="proj-tag">LightGBM</span>
             <span class="proj-tag">Pandas</span>
             <span class="proj-tag">NumPy</span>
@@ -1227,8 +1221,8 @@ img{max-width:100%;display:block;}
       </div>
 
       <!-- Cards 10–16: Hidden behind Load More -->
-      <div class="proj-card hidden" data-tags="Python,Scikit-learn,Pandas,NumPy,Matplotlib,Seaborn">
-        <div class="proj-banner proj-banner-4">
+      <div class="proj-card hidden" data-tags="Machine Learning">
+        <div class="proj-banner proj-banner-ml">
           <span class="proj-ep">Episode 10</span>
           <h3>Retail Customer Segments</h3>
         </div>
@@ -1249,8 +1243,8 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
-            <span class="proj-tag" onclick="filterProjects('Scikit-learn',null)">Scikit-learn</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">Scikit-learn</span>
             <span class="proj-tag">Pandas</span>
             <span class="proj-tag">NumPy</span>
             <span class="proj-tag">Matplotlib</span>
@@ -1260,8 +1254,8 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="proj-card hidden" data-tags="MySQL">
-        <div class="proj-banner proj-banner-5">
+      <div class="proj-card hidden" data-tags="Data & BI">
+        <div class="proj-banner proj-banner-data">
           <span class="proj-ep">Episode 11</span>
           <h3>Restaurant Orders</h3>
         </div>
@@ -1282,14 +1276,14 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('MySQL',null)">MySQL</span>
+            <span class="proj-tag">MySQL</span>
           </div>
           <a class="proj-link" href="https://github.com/reemikadas/Restaurants_Orders_Analysis" target="_blank" rel="noopener">View on GitHub &#8594;</a>
         </div>
       </div>
 
-      <div class="proj-card hidden" data-tags="Tableau">
-        <div class="proj-banner proj-banner-6">
+      <div class="proj-card hidden" data-tags="Data & BI">
+        <div class="proj-banner proj-banner-viz">
           <span class="proj-ep">Episode 12</span>
           <h3>Marketing Dashboard</h3>
         </div>
@@ -1310,14 +1304,14 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Tableau',null)">Tableau</span>
+            <span class="proj-tag">Tableau</span>
           </div>
           <a class="proj-link" href="https://github.com/reemikadas/Marketing_Campaign_Dashboard" target="_blank" rel="noopener">View on GitHub &#8594;</a>
         </div>
       </div>
 
-      <div class="proj-card hidden" data-tags="MySQL,Tableau">
-        <div class="proj-banner proj-banner-1">
+      <div class="proj-card hidden" data-tags="Data & BI">
+        <div class="proj-banner proj-banner-data">
           <span class="proj-ep">Episode 13</span>
           <h3>Vehicle Theft NZ</h3>
         </div>
@@ -1338,15 +1332,15 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('MySQL',null)">MySQL</span>
-            <span class="proj-tag" onclick="filterProjects('Tableau',null)">Tableau</span>
+            <span class="proj-tag">MySQL</span>
+            <span class="proj-tag">Tableau</span>
           </div>
           <a class="proj-link" href="https://github.com/reemikadas/Motor_Vehicle_Thefts_Analysis" target="_blank" rel="noopener">View on GitHub &#8594;</a>
         </div>
       </div>
 
-      <div class="proj-card hidden" data-tags="Python,TensorFlow,Keras,OpenCV,NumPy,Matplotlib">
-        <div class="proj-banner proj-banner-2">
+      <div class="proj-card hidden" data-tags="Deep Learning">
+        <div class="proj-banner proj-banner-dl">
           <span class="proj-ep">Episode 14</span>
           <h3>Facial Expression Recognition</h3>
         </div>
@@ -1367,8 +1361,8 @@ img{max-width:100%;display:block;}
             </div>
           </div>
           <div class="proj-tags">
-            <span class="proj-tag" onclick="filterProjects('Python',null)">Python</span>
-            <span class="proj-tag" onclick="filterProjects('TensorFlow',null)">TensorFlow</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">TensorFlow</span>
             <span class="proj-tag">Keras</span>
             <span class="proj-tag">OpenCV</span>
             <span class="proj-tag">NumPy</span>
@@ -1378,31 +1372,71 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="proj-card hidden" data-tags="Python,Placeholder">
-        <div class="proj-banner proj-banner-3">
+      <div class="proj-card hidden" data-tags="NLP">
+        <div class="proj-banner proj-banner-nlp">
           <span class="proj-ep">Episode 15</span>
-          <h3>Project Title</h3>
+          <h3>Mental Health Sentiment</h3>
         </div>
         <div class="proj-body">
-          <p>Project description coming soon — README audit in progress.</p>
+          <p>A two-model NLP pipeline comparing TF-IDF with Logistic Regression and LSTM with custom Word2Vec embeddings to classify mental health text statements into 7 sentiment categories across 52K+ records.</p>
+          <div class="proj-metrics" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
+            <div style="background:rgba(110,90,153,0.08);border:1px solid rgba(110,90,153,0.25);border-radius:8px;padding:6px 12px;text-align:center;">
+              <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--sage-dark);">73.86%</div>
+              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--espresso-light);text-transform:uppercase;letter-spacing:0.04em;">LSTM Test Accuracy</div>
+            </div>
+            <div style="background:rgba(110,90,153,0.08);border:1px solid rgba(110,90,153,0.25);border-radius:8px;padding:6px 12px;text-align:center;">
+              <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--sage-dark);">3.57%</div>
+              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--espresso-light);text-transform:uppercase;letter-spacing:0.04em;">Generalization Gap</div>
+            </div>
+            <div style="background:rgba(110,90,153,0.08);border:1px solid rgba(110,90,153,0.25);border-radius:8px;padding:6px 12px;text-align:center;">
+              <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--sage-dark);">7</div>
+              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--espresso-light);text-transform:uppercase;letter-spacing:0.04em;">Sentiment Classes</div>
+            </div>
+          </div>
           <div class="proj-tags">
             <span class="proj-tag">Python</span>
+            <span class="proj-tag">TensorFlow</span>
+            <span class="proj-tag">Keras</span>
+            <span class="proj-tag">Scikit-learn</span>
+            <span class="proj-tag">NLTK</span>
+            <span class="proj-tag">Gensim</span>
+            <span class="proj-tag">Pandas</span>
+            <span class="proj-tag">NumPy</span>
           </div>
-          <a class="proj-link" href="https://github.com/reemikadas" target="_blank" rel="noopener">View on GitHub &#8594;</a>
+          <a class="proj-link" href="https://github.com/reemikadas/Sentiment_Analysis_for_Mental_Health" target="_blank" rel="noopener">View on GitHub &#8594;</a>
         </div>
       </div>
 
-      <div class="proj-card hidden" data-tags="Python,Placeholder">
-        <div class="proj-banner proj-banner-4">
+      <div class="proj-card hidden" data-tags="Machine Learning">
+        <div class="proj-banner proj-banner-ml">
           <span class="proj-ep">Episode 16</span>
-          <h3>Project Title</h3>
+          <h3>Market Basket Analysis</h3>
         </div>
         <div class="proj-body">
-          <p>Project description coming soon — README audit in progress.</p>
+          <p>A market basket analysis using the Apriori algorithm on 38K grocery transactions to uncover product associations, seasonal demand patterns, and cross-selling opportunities across 167 SKUs.</p>
+          <div class="proj-metrics" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
+            <div style="background:rgba(94,63,158,0.08);border:1px solid rgba(94,63,158,0.25);border-radius:8px;padding:6px 12px;text-align:center;">
+              <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--terracotta-dark);">204</div>
+              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--espresso-light);text-transform:uppercase;letter-spacing:0.04em;">Frequent Itemsets</div>
+            </div>
+            <div style="background:rgba(94,63,158,0.08);border:1px solid rgba(94,63,158,0.25);border-radius:8px;padding:6px 12px;text-align:center;">
+              <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--terracotta-dark);">1.447</div>
+              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--espresso-light);text-transform:uppercase;letter-spacing:0.04em;">Top Lift Score</div>
+            </div>
+            <div style="background:rgba(94,63,158,0.08);border:1px solid rgba(94,63,158,0.25);border-radius:8px;padding:6px 12px;text-align:center;">
+              <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--terracotta-dark);">38K</div>
+              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--espresso-light);text-transform:uppercase;letter-spacing:0.04em;">Transactions</div>
+            </div>
+          </div>
           <div class="proj-tags">
             <span class="proj-tag">Python</span>
+            <span class="proj-tag">mlxtend</span>
+            <span class="proj-tag">Pandas</span>
+            <span class="proj-tag">NumPy</span>
+            <span class="proj-tag">Matplotlib</span>
+            <span class="proj-tag">Seaborn</span>
           </div>
-          <a class="proj-link" href="https://github.com/reemikadas" target="_blank" rel="noopener">View on GitHub &#8594;</a>
+          <a class="proj-link" href="https://github.com/reemikadas/Market_Basket_Analysis_of_Grocery_Store" target="_blank" rel="noopener">View on GitHub &#8594;</a>
         </div>
       </div>
 
@@ -1644,10 +1678,16 @@ function initProjectCounts() {
       tagCounts[t] = (tagCounts[t] || 0) + 1;
     });
   });
-  // update filter button counts
-  ['Python','LangChain','MySQL','Tableau','TensorFlow','Streamlit','XGBoost','Scikit-learn'].forEach(function(tag) {
-    var el = document.getElementById('cnt-' + tag);
-    if (el) el.textContent = tagCounts[tag] || 0;
+  var domainMap = {
+    'GenAI & RAG':      'cnt-genai',
+    'Machine Learning': 'cnt-ml',
+    'Deep Learning':    'cnt-dl',
+    'NLP':              'cnt-nlp',
+    'Data & BI':        'cnt-bi'
+  };
+  Object.keys(domainMap).forEach(function(domain) {
+    var el = document.getElementById(domainMap[domain]);
+    if (el) el.textContent = tagCounts[domain] || 0;
   });
 }
 
@@ -1658,11 +1698,9 @@ function filterProjects(tag, btn) {
   if (btn) {
     btn.classList.add('active');
   } else {
-    // called from a tag chip — find matching filter button
     btns.forEach(function(b) {
       if (b.getAttribute('data-filter') === tag) b.classList.add('active');
     });
-    // if no matching filter button, fall back to All
     var anyActive = document.querySelector('.proj-filter-btn.active');
     if (!anyActive) {
       document.querySelector('[data-filter="all"]').classList.add('active');
@@ -1670,7 +1708,6 @@ function filterProjects(tag, btn) {
     }
   }
 
-  // show all cards first (remove filtered-out), then re-apply hidden if not loaded
   var cards = document.querySelectorAll('#projGrid .proj-card:not(.proj-empty)');
   var visibleCount = 0;
 
@@ -1682,7 +1719,6 @@ function filterProjects(tag, btn) {
     if (!matches) {
       card.classList.add('filtered-out');
     } else {
-      // when filtering, show ALL matching cards regardless of load-more state
       if (tag !== 'all') {
         card.classList.remove('hidden');
       }
@@ -1712,7 +1748,7 @@ function filterProjects(tag, btn) {
   var empty = document.getElementById('projEmpty');
   empty.style.display = visibleCount === 0 ? 'block' : 'none';
 
-  // load more button — only show on "All" view and when not all loaded
+  // load more button
   var loadWrap = document.getElementById('loadMoreWrap');
   if (tag === 'all' && !allLoaded) {
     loadWrap.classList.remove('hidden');
